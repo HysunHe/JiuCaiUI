@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
 import * as echarts from 'echarts';
-import { Http, Headers } from '@angular/http';
+import { Http } from '@angular/http';
 import 'rxjs/add/operator/map'
 
 @Component({
@@ -12,8 +12,6 @@ export class HomePage {
 
   constructor(public navCtrl: NavController, public http: Http) {
     console.log("*** Home page ***");
-    console.log("* Echarts info: ", echarts);
-    console.log("*** Goodbye ***");
   }
 
   ionViewDidEnter() {
@@ -21,7 +19,7 @@ export class HomePage {
   }
 
   loadDapanPoints() {
-    this.http.get("http://localhost:8080/sync-service/data/dapanchart?limit=100")
+    this.http.get("http://localhost:8080/sync-service/data/dapanchart?limit=30")
       .map(res => res.json()).subscribe(data => {
         let dataArray = [], labelArray = [];
         data.forEach(e => {
@@ -39,7 +37,7 @@ export class HomePage {
           },
           title: {
             left: 'center',
-            text: '大资金进出数据图',
+            text: '大单资金日汇总统计图',
           },
           toolbox: {
             feature: {
@@ -67,7 +65,7 @@ export class HomePage {
                 color: 'rgb(255, 70, 131)'
               },
               areaStyle: {
-                color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [{
+                color: new echarts.graphic["LinearGradient"](0, 0, 0, 1, [{
                   offset: 0,
                   color: 'red'
                 }, {

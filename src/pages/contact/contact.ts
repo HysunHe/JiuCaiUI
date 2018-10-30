@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
 import * as echarts from 'echarts';
-import { Http, Headers } from '@angular/http';
+import { Http } from '@angular/http';
 import 'rxjs/add/operator/map'
 
 @Component({
@@ -19,7 +19,7 @@ export class ContactPage {
   }
 
   loadLuGuTongPoints() {
-    this.http.get("http://localhost:8080/sync-service/data/lugutongchart?limit=100")
+    this.http.get("http://localhost:8080/sync-service/data/lugutongchart?limit=30")
       .map(res => res.json()).subscribe(data => {
         let dataArray = [], labelArray = [];
         data.forEach(e => {
@@ -37,7 +37,7 @@ export class ContactPage {
           },
           title: {
             left: 'center',
-            text: '陆股通汇总数据图',
+            text: '陆股通日汇总统计图',
           },
           toolbox: {
             feature: {
@@ -65,7 +65,7 @@ export class ContactPage {
                 color: 'rgb(255, 70, 131)'
               },
               areaStyle: {
-                color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [{
+                color: new echarts.graphic["LinearGradient"](0, 0, 0, 1, [{
                   offset: 0,
                   color: 'red'
                 }, {
