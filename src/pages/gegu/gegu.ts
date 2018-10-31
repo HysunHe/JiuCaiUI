@@ -9,9 +9,22 @@ import 'rxjs/add/operator/map';
   templateUrl: 'gegu.html'
 })
 export class GeguPage {
+  historyStocks: string[];
 
-  constructor(private storage: Storage, private http: Http, public navCtrl: NavController) {
+  constructor(private storage: Storage, private http: Http, private navCtrl: NavController) {
+    this.historyStocks = [];
+  }
 
+  getHistoryStocks(ev: any) {
+    // set val to the value of the searchbar
+    const val = ev.target.value;
+
+    // if the value is an empty string don't filter the items
+    if (val && val.trim() != '') {
+      this.historyStocks = this.historyStocks.filter((item) => {
+        return (item.toLowerCase().indexOf(val.toLowerCase()) > -1);
+      })
+    }
   }
 
   loadLuGuTongPoints(code) {
