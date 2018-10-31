@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
 import * as echarts from 'echarts';
 import { Http } from '@angular/http';
-import 'rxjs/add/operator/map'
+import 'rxjs/add/operator/map';
 
 @Component({
   selector: 'page-home',
@@ -10,7 +10,7 @@ import 'rxjs/add/operator/map'
 })
 export class HomePage {
 
-  constructor(public navCtrl: NavController, public http: Http) {
+  constructor(public navCtrl: NavController, private http: Http) {
     console.log("*** Home page ***");
   }
 
