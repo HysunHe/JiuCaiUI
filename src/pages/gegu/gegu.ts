@@ -27,7 +27,11 @@ export class GeguPage {
     }
   }
 
-  loadLuGuTongPoints(code) {
+  loadLuGuTongPoints(ev, item) {
+    console.log(ev);
+    console.log(item);
+    var code = "600360";
+    
     this.http.get("http://localhost:8080/sync-service/data/geguchart?code=" + code + "&limit=30")
       .map(res => res.json()).subscribe(data => {
         let dataArray = [], labelArray = [];
