@@ -58,13 +58,6 @@ export class GeguPage {
     }
   }
 
-<<<<<<< HEAD
-  loadLuGuTongPoints(ev, item) {
-    console.log(ev);
-    console.log(item);
-    var code = "600360";
-    
-=======
   itemTapped(ev:any, item:any) { 
     this.showList = false;
     this.showHistCharts.hist = false;
@@ -87,7 +80,6 @@ export class GeguPage {
   loadLuGuTongPoints(item: any, id: string) {
     let code: string = item.code;
     console.log("*** Generating chart: " + id + " | code: " + code);
->>>>>>> dev
     this.http.get("http://localhost:8080/sync-service/data/geguchart?code=" + code + "&limit=30")
       .map(res => res.json()).subscribe(data => {
         let dataArray = [], labelArray = [];
