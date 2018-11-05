@@ -37,7 +37,7 @@ export class ContactPage {
           },
           title: {
             left: 'center',
-            text: '陆股通日汇总统计图',
+            text: '陆股通资金流入日汇总统计图',
           },
           toolbox: {
             feature: {
@@ -59,7 +59,7 @@ export class ContactPage {
           },
           series: [
             {
-              name: '资金变化',
+              name: '资金流入',
               type: 'line',
               itemStyle: {
                 color: 'rgb(255, 70, 131)'

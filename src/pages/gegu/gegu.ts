@@ -109,7 +109,7 @@ export class GeguPage {
           },
           title: {
             left: 'center',
-            text: item.name + '日汇总',
+            text: item.name + '资金流入',
           },
           toolbox: {
             feature: {

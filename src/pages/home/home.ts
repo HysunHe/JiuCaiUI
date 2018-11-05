@@ -37,7 +37,7 @@ export class HomePage {
           },
           title: {
             left: 'center',
-            text: '大单资金日汇总统计图',
+            text: '大单资金流入日汇总统计图',
           },
           toolbox: {
             feature: {
