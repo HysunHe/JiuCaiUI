@@ -10,5 +10,44 @@
 </ion-header>
 
 <ion-content padding>
+<<<<<<< HEAD
     <div id="geguchart"></div>
+=======
+
+</ion-content>
+-->
+
+<ion-header>
+  <ion-searchbar [(ngModel)]="selectedItem.name" (ionInput)="getMatchedStocks($event)" [debounce]="500" placeholder="代码或首字母"></ion-searchbar>
+  <ion-list *ngIf="showList">
+    <button ion-item *ngFor="let item of matchedItems" (click)="itemTapped($event, item)">
+      {{item.name}} - {{item.code}}
+    </button>
+  </ion-list>
+</ion-header>
+
+<ion-content padding>
+  <div id="geguchart" class="geguchart" *ngIf="showHistCharts.geguchart"></div>
+  
+  <div id="geguchart1" class="geguchart" *ngIf="showHistCharts.hist && showHistCharts.geguchart1"></div>
+  <div id="geguchart2" class="geguchart" *ngIf="showHistCharts.hist && showHistCharts.geguchart2"></div>
+  <div id="geguchart3" class="geguchart" *ngIf="showHistCharts.hist && showHistCharts.geguchart3"></div>
+  <div id="geguchart4" class="geguchart" *ngIf="showHistCharts.hist && showHistCharts.geguchart4"></div>
+  <div id="geguchart5" class="geguchart" *ngIf="showHistCharts.hist && showHistCharts.geguchart5"></div>
+  <div id="geguchart6" class="geguchart" *ngIf="showHistCharts.hist && showHistCharts.geguchart6"></div>
+  <div id="geguchart7" class="geguchart" *ngIf="showHistCharts.hist && showHistCharts.geguchart7"></div>
+  <div id="geguchart8" class="geguchart" *ngIf="showHistCharts.hist && showHistCharts.geguchart8"></div>
+  <div id="geguchart9" class="geguchart" *ngIf="showHistCharts.hist && showHistCharts.geguchart9"></div>
+  <div id="geguchart10" class="geguchart" *ngIf="showHistCharts.hist && showHistCharts.geguchart10"></div>
+  <div id="geguchart11" class="geguchart" *ngIf="showHistCharts.hist && showHistCharts.geguchart11"></div>
+  <div id="geguchart12" class="geguchart" *ngIf="showHistCharts.hist && showHistCharts.geguchart12"></div>
+  <div id="geguchart13" class="geguchart" *ngIf="showHistCharts.hist && showHistCharts.geguchart13"></div>
+  <div id="geguchart14" class="geguchart" *ngIf="showHistCharts.hist && showHistCharts.geguchart14"></div>
+  <div id="geguchart15" class="geguchart" *ngIf="showHistCharts.hist && showHistCharts.geguchart15"></div>
+  <div id="geguchart16" class="geguchart" *ngIf="showHistCharts.hist && showHistCharts.geguchart16"></div>
+  <div id="geguchart17" class="geguchart" *ngIf="showHistCharts.hist && showHistCharts.geguchart17"></div>
+  <div id="geguchart18" class="geguchart" *ngIf="showHistCharts.hist && showHistCharts.geguchart18"></div>
+  <div id="geguchart19" class="geguchart" *ngIf="showHistCharts.hist && showHistCharts.geguchart19"></div>
+  <div id="geguchart20" class="geguchart" *ngIf="showHistCharts.hist && showHistCharts.geguchart20"></div>
+>>>>>>> dev
 </ion-content>
