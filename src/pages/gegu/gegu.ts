@@ -52,10 +52,11 @@ export class GeguPage {
   getMatchedStocks(ev: any) {
     this.showList = true;
     // set val to the value of the searchbar
-    const val = ev.target.value;
+    let val = ev.target.value;
     console.log("*** val: " + ev.target.value);
     // if the value is an empty string don't filter the items
     if (val && val.trim() != '') {
+      val = val.toLowerCase(val);
       this.matchedItems = this.items.filter((item) => {
         return (item.code.indexOf(val) > -1 
           || item.firstLetters.indexOf(val) > -1 
