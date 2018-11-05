@@ -57,7 +57,10 @@ export class GeguPage {
     // if the value is an empty string don't filter the items
     if (val && val.trim() != '') {
       this.matchedItems = this.items.filter((item) => {
-        return (item.code.indexOf(val) > -1);
+        return (item.code.indexOf(val) > -1 
+          || item.firstLetters.indexOf(val) > -1 
+          || item.pinYin.indexOf(val) > -1 
+          || item.name.indexOf(val) > -1);
       })
     } else {
       this.matchedItems = [];
