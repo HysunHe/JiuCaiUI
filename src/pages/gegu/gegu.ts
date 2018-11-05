@@ -18,12 +18,23 @@ export class GeguPage {
   showHistCharts: any = {};
 
   constructor(private storage: Storage, private http: Http, navCtrl: NavController) {
-    this.showHistCharts.hist = true;
-    this.showHistCharts.geguchart = false;
     this.matchedItems = [];
     this.selectedItem = {code: '', name: '', pinYin: '', firstLetters: ''};
     this.items = storage.get("stocks");
-    this.histItems = storage.get("histItems").then((val) => {
+    this.generateHistCharts();
+
+    http.get('http://localhost:8080/sync-service/data/listStocks')
+    .map(res => res.json())
+    .subscribe(data => {
+       this.items = data; 
+       storage.set("stocks", data);
+    });
+  }
+
+  generateHistCharts() {
+    this.showHistCharts.hist = true;
+    this.showHistCharts.geguchart = false;
+    this.histItems = this.storage.get("histItems").then((val) => {
       if(val === null) {
         this.histItems = [];
       } else {
@@ -35,13 +46,6 @@ export class GeguPage {
         this.loadLuGuTongPoints(this.histItems[i-1], 'geguchart' + i);
         this.showHistCharts["geguchart" + i] = true;
       }
-    });
-
-    http.get('http://localhost:8080/sync-service/data/listStocks')
-    .map(res => res.json())
-    .subscribe(data => {
-       this.items = data; 
-       storage.set("stocks", data);
     });
   }
 
@@ -55,6 +59,9 @@ export class GeguPage {
       this.matchedItems = this.items.filter((item) => {
         return (item.code.indexOf(val) > -1);
       })
+    } else {
+      this.matchedItems = [];
+      this.generateHistCharts();
     }
   }
 
@@ -120,7 +127,7 @@ export class GeguPage {
           },
           series: [
             {
-              name: '资金变化',
+              name: '资金流入',
               type: 'line',
               itemStyle: {
                 color: 'rgb(255, 70, 131)'
