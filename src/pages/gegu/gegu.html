@@ -1,23 +1,4 @@
 <ion-header>
-    <ion-navbar>
-        <ion-searchbar (ionInput)="getHistoryStocks($event)"></ion-searchbar>
-        <ion-list>
-            <ion-item *ngFor="let item of historyStocks" (click)="loadLuGuTongPoints($event, item)">
-                {{item}}
-            </ion-item>
-        </ion-list>
-    </ion-navbar>
-</ion-header>
-
-<ion-content padding>
-<<<<<<< HEAD
-    <div id="geguchart"></div>
-=======
-
-</ion-content>
--->
-
-<ion-header>
   <ion-searchbar [(ngModel)]="selectedItem.name" (ionInput)="getMatchedStocks($event)" [debounce]="500" placeholder="代码或首字母"></ion-searchbar>
   <ion-list *ngIf="showList">
     <button ion-item *ngFor="let item of matchedItems" (click)="itemTapped($event, item)">
@@ -49,5 +30,4 @@
   <div id="geguchart18" class="geguchart" *ngIf="showHistCharts.hist && showHistCharts.geguchart18"></div>
   <div id="geguchart19" class="geguchart" *ngIf="showHistCharts.hist && showHistCharts.geguchart19"></div>
   <div id="geguchart20" class="geguchart" *ngIf="showHistCharts.hist && showHistCharts.geguchart20"></div>
->>>>>>> dev
 </ion-content>
