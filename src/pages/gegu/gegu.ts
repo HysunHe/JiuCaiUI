@@ -67,6 +67,7 @@ export class GeguPage {
       this.matchedItems = [];
       this.generateHistCharts();
     }
+    console.log("**** ioninput")
   }
 
   itemTapped(ev:any, item:any) { 

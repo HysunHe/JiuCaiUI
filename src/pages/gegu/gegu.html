@@ -1,5 +1,5 @@
 <ion-header>
-    <ion-searchbar [(ngModel)]="selectedItem.name" (ionInput)="getMatchedStocks($event)" placeholder="代码/首字母/拼音/名稱"></ion-searchbar>
+    <ion-searchbar [(ngModel)]="selectedItem.name" (ionInput)="getMatchedStocks($event)" [debounce]="200" [showCancelButton]="true" placeholder="代码/首字母/拼音/名稱"></ion-searchbar>
     <ion-list *ngIf="showList">
         <button ion-item *ngFor="let item of matchedItems" (click)="itemTapped($event, item)">
       {{item.name}} - {{item.code}}
